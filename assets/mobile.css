@@ -1,0 +1,113 @@
+/* Alides — mobile & accessibility layer (shared by qa.alides.org and fr.alides.org)
+   Loaded after each page's inline styles. Desktop design is unchanged except for
+   the contrast tokens below. */
+
+/* 1. Contrast (WCAG AA) — readable grey on light backgrounds */
+:root{--muted:#5a6372;--bronze:#86682c}
+
+/* 2. Burger becomes a real, accessible button */
+button.burger{background:none;border:0;padding:15px 10px;margin:-15px -10px;cursor:pointer;-webkit-tap-highlight-color:transparent;position:relative;z-index:102}
+button.burger span{display:block;transition:transform .3s,opacity .2s,background .3s;transform-origin:center}
+button.burger:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+header.m-open button.burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+header.m-open button.burger span:nth-child(2){opacity:0}
+header.m-open button.burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+header.m-open{background:var(--navy-deep)!important;box-shadow:none!important;backdrop-filter:none!important}
+header.m-open .brand,header.m-open .brand .name{color:var(--ivory)!important}
+header.m-open button.burger span{background:var(--ivory)!important}
+
+/* Mobile navigation panel */
+.m-nav{position:fixed;inset:0;z-index:99;background:var(--navy-deep);color:var(--ivory);display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top) + 96px) 26px calc(env(safe-area-inset-bottom) + 28px);overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .3s,visibility 0s .3s}
+.m-nav.open{opacity:1;visibility:visible;transform:none;transition:opacity .3s,transform .3s}
+.m-nav .m-group{font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin:26px 0 6px}
+.m-nav .m-group:first-child{margin-top:0}
+.m-nav a{display:flex;align-items:center;min-height:48px;font-family:'EB Garamond',Georgia,serif;font-size:1.45rem;color:var(--ivory);text-decoration:none;border-bottom:1px solid rgba(198,161,87,.16)}
+.m-nav a.m-sub{font-size:1.15rem;min-height:44px;color:rgba(247,245,242,.82)}
+.m-nav a:active{color:var(--gold-soft)}
+.m-nav .m-cta{margin-top:30px;justify-content:center;background:var(--gold);color:var(--navy-deep);border:0;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;min-height:52px;border-radius:2px}
+.m-nav .m-contact{margin-top:22px;font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:.04em;color:rgba(247,245,242,.65);display:flex;flex-wrap:wrap;gap:4px 22px}
+.m-nav .m-contact a{font-family:inherit;font-size:inherit;color:var(--gold-soft);border:0;min-height:44px}
+body.m-lock{overflow:hidden}
+
+/* 3. Cards: the whole card is clickable (stretched link) */
+.m-card{position:relative}
+.m-card .m-stretch::after{content:"";position:absolute;inset:0;z-index:1}
+.m-card:focus-within{outline:1px solid var(--gold);outline-offset:-1px}
+
+/* 4. Mid-article call to action (insight articles) */
+.mid-cta{margin:46px 0;padding:26px 28px;background:var(--navy);color:var(--ivory);border-left:2px solid var(--gold)}
+.mid-cta .label{display:block;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:10px}
+.mid-cta p{font-size:1.08rem;line-height:1.6;color:rgba(247,245,242,.85)!important;margin:0 0 14px!important}
+.mid-cta a{display:inline-flex;align-items:center;min-height:44px;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft)!important;text-decoration:none;border-bottom:1px solid var(--gold)}
+
+/* 5. "Show all" control for long lists (mobile only, added by mobile.js) */
+.m-more{display:none}
+.m-collapsed > .m-hide{display:none!important}
+
+/* 6. Sticky contact bar (mobile only, added by mobile.js) */
+.m-bar{display:none}
+
+/* 7. Motion: respect the visitor's system setting */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero-inner *, .hero .eyebrow,.hero h1,.hero .sub,.hero .signature,.hero-actions,.hero .kicker,.hero .acts{opacity:1!important;transform:none!important}
+}
+
+/* ---------- Phones ---------- */
+@media (max-width:760px){
+  /* lighter, faster header */
+  header{padding:16px 0}
+  header.scrolled{padding:12px 0}
+
+  /* hero appears quickly */
+  .hero-inner *{animation-duration:.55s!important}
+  .hero .eyebrow,.hero .kicker{animation-delay:0s!important}
+  .hero h1{animation-delay:.05s!important}
+  .hero .sub{animation-delay:.12s!important}
+  .hero .signature{animation-delay:.18s!important}
+  .hero-actions,.hero .acts{animation-delay:.22s!important}
+
+  /* buttons: centred labels, comfortable height */
+  .btn,.hero .primary,button.send,.contact button[type=submit]{display:flex!important;justify-content:center;align-items:center;text-align:center;min-height:52px;letter-spacing:.12em}
+  .hero .ghost{display:inline-flex;align-items:center;min-height:44px}
+
+  /* touch targets ≥ 44px */
+  .foot-grid li{padding:0}
+  .foot-grid li a{display:inline-flex;align-items:center;min-height:44px}
+  .foot .links{font-size:.8rem;line-height:1}
+  .foot .links a{display:inline-flex;align-items:center;min-height:44px}
+  .foot .addr{font-size:.8rem}
+  .foot .addr a,.contact .detail a{display:inline-flex;align-items:center;min-height:44px}
+  .crumb a{display:inline-block;padding:12px 0;margin:-12px 0}
+  .back{display:inline-flex;align-items:center;min-height:44px}
+  footer .wrap > span a{display:inline-flex;align-items:center;min-height:44px}
+
+  /* executive-edition note: no wide letter-spacing on small screens */
+  .fr-note{font-size:.86rem;letter-spacing:.01em;line-height:1.6}
+
+  /* tighter cards */
+  .exp,.advise{padding:26px 22px 30px}
+  .foot-grid li a[href*="aesc"],.foot .links a{padding-right:12px}
+
+  /* long lists */
+  .m-more{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:48px;margin-top:18px;background:none;border:1px solid currentColor;
+    color:inherit;opacity:.85;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px}
+  .m-more::after{content:"";width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+
+  /* sticky contact bar */
+  .m-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;gap:10px;padding:10px 16px calc(env(safe-area-inset-bottom) + 10px);
+    background:rgba(14,23,39,.97);border-top:1px solid rgba(198,161,87,.24);transform:translateY(110%);transition:transform .35s ease}
+  .m-bar.show{transform:none}
+  .m-bar a{display:flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;border-radius:2px}
+  .m-bar .m-bar-cta{flex:1;background:var(--gold);color:var(--navy-deep)}
+  .m-bar .m-bar-tel{width:48px;border:1px solid rgba(198,161,87,.45);color:var(--gold-soft)}
+  .m-bar .m-bar-tel svg{width:19px;height:19px}
+
+  /* France: lighter hero image on phones */
+  .hero .bg{background-image:url('/assets/hero-paris-mobile.jpg')!important}
+}
+
+/* France desktop: scrolled header CTA readable on ivory */
+header.scrolled .menu a.req{color:var(--bronze)}
