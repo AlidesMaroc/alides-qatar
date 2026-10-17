@@ -2,9 +2,14 @@
 (function () {
   'use strict';
   var FR = (document.documentElement.lang || '').toLowerCase().indexOf('fr') === 0;
-  var T = FR
-    ? { open: 'Ouvrir le menu', close: 'Fermer le menu', nav: 'Navigation', exp: 'Expertises', more: 'Afficher les ', cta: 'Échange confidentiel', call: 'Appeler', menu: 'Menu' }
-    : { open: 'Open menu', close: 'Close menu', nav: 'Navigate', exp: 'Expertise', more: 'Show all ', cta: 'Request an introduction', call: 'Call', menu: 'Menu' };
+  var LANG = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  var FR = LANG === 'fr';
+  var T = {
+    fr: { open: 'Ouvrir le menu', close: 'Fermer le menu', nav: 'Navigation', exp: 'Expertises', ind: 'Secteurs', more: 'Afficher les ', cta: 'Échange confidentiel', call: 'Appeler', menu: 'Menu', done: 'Merci — votre abonnement est confirmé.' },
+    ar: { open: 'فتح القائمة', close: 'إغلاق القائمة', nav: 'التصفح', exp: 'خبراتنا (بالإنجليزية)', ind: 'القطاعات (بالإنجليزية)', more: 'عرض الكل: ', cta: 'اطلب لقاءً تعريفيًا', call: 'اتصال', menu: 'القائمة', done: 'شكرًا لكم — تم تأكيد اشتراككم في الموجزات الاستراتيجية.' },
+    en: { open: 'Open menu', close: 'Close menu', nav: 'Navigate', exp: 'Expertise', ind: 'Industries', more: 'Show all ', cta: 'Request an introduction', call: 'Call', menu: 'Menu', done: 'Thank you — your subscription to the Strategic Briefs is confirmed.' }
+  }[LANG] || null;
+  if (!T) T = { open: 'Open menu', close: 'Close menu', nav: 'Navigate', exp: 'Expertise', ind: 'Industries', more: 'Show all ', cta: 'Request an introduction', call: 'Call', menu: 'Menu', done: 'Thank you — your subscription to the Strategic Briefs is confirmed.' };
   var phone = window.matchMedia('(max-width:760px)');
   var header = document.querySelector('header');
   var tel = document.querySelector('a[href^="tel:"]');
@@ -53,10 +58,15 @@
        ['/qatar/qatarisation-leadership/', 'Qatarisation & Leadership'],
        ['/qatar/leadership-advisory-qatar/', 'Leadership Advisory']
       ].forEach(function (l) { if (location.pathname !== l[0]) addLink(panel, l[0], l[1], 'm-sub'); });
+      panel.appendChild(el('div', { 'class': 'm-group' }, T.ind));
+      [['/qatar/energy-industry-qatar/', 'Energy & Industry'],
+       ['/qatar/public-sector-sovereign-qatar/', 'Public Sector & Sovereign Capital'],
+       ['/qatar/financial-services-qatar/', 'Financial Services']
+      ].forEach(function (l) { if (location.pathname !== l[0]) addLink(panel, l[0], l[1], 'm-sub'); });
     }
     addLink(panel, cta ? cta.getAttribute('href') : (document.getElementById('contact') ? '#contact' : '/#contact'), T.cta, 'm-cta');
     if (tel || mail) {
-      var c = el('div', { 'class': 'm-contact' });
+      var c = el('div', { 'class': 'm-contact', dir: 'ltr' });
       if (tel) addLink(c, tel.getAttribute('href'), tel.textContent.trim());
       if (mail) addLink(c, mail.getAttribute('href'), mail.textContent.trim());
       panel.appendChild(c);
@@ -87,6 +97,15 @@
     window.addEventListener('resize', function () {
       if (panel.classList.contains('open') && getComputedStyle(btn).display === 'none') setOpen(false);
     });
+  }
+
+  /* ---------- 1b. Subscription confirmation ---------- */
+  if (/[?&]subscribed=1/.test(location.search)) {
+    [].forEach.call(document.querySelectorAll('.sub-form'), function (f) {
+      var d = el('p', { 'class': 'sub-done', role: 'status' }); d.textContent = T.done;
+      f.parentNode.replaceChild(d, f);
+    });
+    var sb = document.getElementById('subscribe'); if (sb) sb.scrollIntoView({ block: 'center' });
   }
 
   /* ---------- 2. Whole card clickable ---------- */

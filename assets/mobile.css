@@ -111,3 +111,56 @@ body.m-lock{overflow:hidden}
 
 /* France desktop: scrolled header CTA readable on ivory */
 header.scrolled .menu a.req{color:var(--bronze)}
+
+/* Industries row (Qatar home) */
+.ind-row{margin-top:48px;display:flex;gap:18px 30px;align-items:baseline;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px}
+.ind-row .label{color:var(--bronze)}
+.ind-links{display:flex;flex-wrap:wrap;gap:10px 28px}
+.ind-links a{font-family:'EB Garamond',Georgia,serif;font-size:1.14rem;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.ind-links a:hover{color:var(--maroon);border-color:var(--maroon)}
+
+/* Strategic Briefs subscription */
+.sub-box{margin-top:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;background:var(--navy);color:var(--ivory);padding:40px 44px;border-left:2px solid var(--gold)}
+.sub-box .label{color:var(--gold-soft);display:block;margin-bottom:12px}
+.sub-box h3{font-size:1.5rem;line-height:1.3;color:var(--ivory);margin-bottom:10px;font-weight:500}
+.sub-box p{color:rgba(247,245,242,.78);font-size:1.02rem;margin:0}
+.sub-form{display:flex;flex-wrap:wrap;gap:10px}
+.sub-form input[type=email]{flex:1 1 220px;min-height:50px;padding:0 16px;font-size:16px;font-family:'Jost',sans-serif;background:rgba(247,245,242,.06);border:1px solid rgba(198,161,87,.4);color:var(--ivory);border-radius:2px}
+.sub-form input[type=email]::placeholder{color:rgba(247,245,242,.5)}
+.sub-form button{min-height:50px;padding:0 26px;background:var(--gold);color:var(--navy-deep);border:0;font-family:'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;cursor:pointer;border-radius:2px}
+.sub-form button:hover{background:var(--gold-soft)}
+.sub-form small{flex-basis:100%;font-family:'Jost',sans-serif;font-size:.8rem;color:rgba(247,245,242,.62)}
+.sub-form small a{color:var(--gold-soft)}
+.sub-done{font-family:'EB Garamond',Georgia,serif;font-size:1.2rem;color:var(--gold-soft);font-style:italic}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:760px){
+  .ind-links{flex-direction:column;gap:0;width:100%}
+  .ind-links a{min-height:46px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+  .sub-box{grid-template-columns:1fr;padding:30px 24px;gap:22px}
+  .sub-form button{width:100%}
+}
+
+/* Sector pages: FAQ questions */
+.body-prose .faq-h{font-size:1.2rem;color:var(--navy);margin:26px 0 8px;line-height:1.3}
+
+/* Partner portrait */
+.p-hero-grid{display:grid;grid-template-columns:1fr 200px;gap:40px;align-items:end}
+.portrait,.partner-photo{margin:0}
+.portrait img,.partner-photo img{display:block;width:100%;height:auto;border:1px solid rgba(198,161,87,.35)}
+.partner{background:var(--paper)}
+.partner-grid{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:center;max-width:1040px}
+.partner-photo{position:relative;z-index:0}
+.partner-photo::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--gold);z-index:-1}
+.partner-txt .label{color:var(--bronze);display:block;margin-bottom:18px}
+.partner-txt h2{font-size:clamp(1.8rem,3vw,2.5rem);color:var(--navy);line-height:1.22;margin-bottom:22px}
+.partner-txt h2 em{font-style:italic;color:var(--maroon)}
+.partner-txt p{font-size:1.12rem;color:var(--ink);margin-bottom:18px;max-width:58ch}
+.partner-quote{font-style:italic;font-size:1.35rem!important;color:var(--navy)!important;border-left:2px solid var(--gold);padding-left:18px}
+.partner-sig{font-family:'Jost',sans-serif;font-size:.78rem!important;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)!important}
+.partner-link{display:inline-flex;align-items:center;min-height:44px;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--maroon)}
+@media (max-width:760px){
+  .p-hero-grid{grid-template-columns:1fr;gap:26px}
+  .portrait{order:-1;width:150px}
+  .partner-grid{grid-template-columns:1fr;gap:34px}
+  .partner-photo{width:62%;max-width:260px}
+}

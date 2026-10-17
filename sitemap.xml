@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://qa.alides.org/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://qa.alides.org/</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://qa.alides.org/qatar/executive-search-doha/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://qa.alides.org/qatar/board-advisory-qatar/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://qa.alides.org/qatar/ceo-succession-qatar/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -8,7 +8,7 @@
   <url><loc>https://qa.alides.org/qatar/leadership-advisory-qatar/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://qa.alides.org/qatar/qatarisation-leadership/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://qa.alides.org/qatar/about/</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://qa.alides.org/qatar/insights/</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qa.alides.org/qatar/insights/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qa.alides.org/qatar/insights/the-true-cost-of-an-appointment/</loc><lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qa.alides.org/qatar/insights/institutionalising-the-family-office/</loc><lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qa.alides.org/qatar/insights/appointing-a-ceo-today/</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
@@ -18,4 +18,8 @@
   <url><loc>https://qa.alides.org/qatar/insights/the-false-move-of-false-change/</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://qa.alides.org/qatar/insights/leadership-is-a-system/</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://qa.alides.org/qatar/legal/</loc></url>
+  <url><loc>https://qa.alides.org/qatar/energy-industry-qatar/</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://qa.alides.org/qatar/public-sector-sovereign-qatar/</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://qa.alides.org/qatar/financial-services-qatar/</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://qa.alides.org/qatar/recruitment-fraud-notice/</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>
